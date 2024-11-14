@@ -29,4 +29,4 @@ for i, scene_setting in enumerate(scene_settings):
     snap_file = create_snap_file(scene_setting, snap_contents)
     export_file(snap_file, scene_names[i])
 
-
+print("thanks for using this application")
