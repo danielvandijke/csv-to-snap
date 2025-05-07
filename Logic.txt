@@ -2,27 +2,27 @@ import csv
 file_path = "C:\Users\danie\OneDrive\Desktop\csv-to-snap\2023 Cinderella CVS file.csv"
 
 	if point == '':
-                ch_col = 1
-                ch_led = 'false'
-                ch_mute = 'true'
-                ch_tags = ''
-            elif point == 1:
-                ch_col = 3
-                ch_led = 'true'
-                ch_mute = 'false'
-                ch_tags = '#D3'
-            elif point == 2:
-                ch_col = 10
-                ch_led = 'true'
-                ch_mute = 'false'
-                ch_tags = '#D3'
-            elif point == 3:
-                ch_col = 9
-                ch_led = 'true'
-                ch_mute = 'false'
-                ch_tags = '#D3'
-            elif point == 4:
-                ch_col = 5
-                ch_led = 'true'
-                ch_mute = 'false'
-                ch_tags = '#D2'
+        ch_col = 1
+        ch_led = 'false'
+        ch_mute = 'true'
+        ch_tags = ''
+    elif point == 1:
+        ch_col = 3
+        ch_led = 'true'
+        ch_mute = 'false'
+        ch_tags = '#D3'
+    elif point == 2:
+        ch_col = 10
+        ch_led = 'true'
+        ch_mute = 'false'
+        ch_tags = '#D3'
+    elif point == 3:
+        ch_col = 9
+        ch_led = 'true'
+        ch_mute = 'false'
+        ch_tags = '#D3'
+    elif point == 4:
+        ch_col = 5
+        ch_led = 'true'
+        ch_mute = 'false'
+        ch_tags = '#D2'
