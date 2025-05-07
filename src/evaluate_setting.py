@@ -1,5 +1,4 @@
 import re
-from typing import List
 
 class ChannelSetting:
     def __init__(self, color: int, led: bool, mute: bool, tags: str):
@@ -8,18 +7,14 @@ class ChannelSetting:
         self.mute: bool = mute
         self.tags: str = tags
 
-def find_setting(point: int):
-    if point == 0:
-        return ChannelSetting(1, False, True, '""')
-    if point == 1:
-        return ChannelSetting(1, True, False, '"#D3"')
-    if point == 2:
-        return ChannelSetting(10, True, False, '"#D3"')
-    if point == 3:
-        return ChannelSetting(9, True, False, '"#D3"')
-    if point == 4:
-        return ChannelSetting(5, True, False, '"#D2"')
-    return None
+def find_setting(point: int) -> ChannelSetting:
+    point_to_setting = {0: ChannelSetting(1, False, True, '""'),
+                        1: ChannelSetting(1, True, False, '"#D3"'),
+                        2: ChannelSetting(10, True, False, '"#D3"'),
+                        3: ChannelSetting(9, True, False, '"#D3"'),
+                        4: ChannelSetting(5, True, False, '"#D2"')
+                        }
+    return point_to_setting[point]
 
 def change_settings(channel_setting: ChannelSetting, snap_channel: str) -> str:
     settings: list[str] = re.split(r'([,:{}])', snap_channel)
@@ -55,18 +50,20 @@ def create_snap_file(channel_settings: list[ChannelSetting], snap_contents: list
     return snap_file
 
 
-def get_snap_content(path):
+def get_snap_content(path: str) -> str | None:
     try:
         with open(path, 'r') as file:
-            snap_content = file.read()
+            snap_content: str = file.read()
         return snap_content
     except FileNotFoundError:
         print(f"Error: The file '{path}' was not found.")
+        return None
     except IOError:
         print(f"Error: An error occurred while reading the file '{path}'")
+        return None
 
 
-def export_file(snap_content: str, file_name: str):
+def export_file(snap_content: str, file_name: str) -> None:
     file_name += ".snap"
     file_path = re.sub(r"[:]", ",", file_name)
     with open(file_path, "w") as file:
